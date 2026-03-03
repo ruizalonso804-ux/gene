@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nuestra Historia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
 
   <!-- SCROLL PROGRESS BAR -->
@@ -43,11 +47,9 @@
       <div class="hero__grain"></div>
       <div class="hero__content">
         <h1 class="hero__title split-title">
-          <!-- REEMPLAZA con los nombres reales -->
-          [Nombre1] &amp; [Nombre2]
+          Alonso &amp; Gene
         </h1>
         <p class="hero__sub split-sub">
-          <!-- REEMPLAZA con tu frase o fecha -->
           Desde el primer día, para siempre.
         </p>
       </div>
@@ -70,62 +72,59 @@
     </section>
 
     <!-- ═══════════════════════════════════════ -->
-    <!-- CHAPTERS (PINNED)                       -->
+    <!-- GALLERY GRID                            -->
     <!-- ═══════════════════════════════════════ -->
-    <section class="chapters" id="chapters">
-      <div class="chapters__sticky">
-
-        <!-- Chapter text side (stays fixed) -->
-        <div class="chapters__text-col">
-          <div class="chapter-item active" data-chapter="0">
-            <span class="chapter-num">01</span>
-            <h2 class="chapter-title">Cuando todo<br /><em>empezó</em></h2>
-            <p class="chapter-body">El primer día que nos miramos así, algo cambió para siempre. Sin aviso, sin plan. Solo el corazón que supo antes que la razón.</p>
-          </div>
-          <div class="chapter-item" data-chapter="1">
-            <span class="chapter-num">02</span>
-            <h2 class="chapter-title">Nuestros<br /><em>lugares</em></h2>
-            <p class="chapter-body">Cada rincón que visitamos juntos se convirtió en nuestro. Una mesa, una vista, un momento suspendido en el tiempo.</p>
-          </div>
-          <div class="chapter-item" data-chapter="2">
-            <span class="chapter-num">03</span>
-            <h2 class="chapter-title">Risas y<br /><em>aventuras</em></h2>
-            <p class="chapter-body">No hay mejor cómplice para los momentos espontáneos. Las mejores fotos son las que no planeamos.</p>
-          </div>
-          <div class="chapter-item" data-chapter="3">
-            <span class="chapter-num">04</span>
-            <h2 class="chapter-title">Lo que<br /><em>viene</em></h2>
-            <p class="chapter-body">Cada día juntos es una promesa silenciosa. Y hay muchos más por venir, con ese mismo sol, esa misma sonrisa.</p>
-          </div>
-        </div>
-
-        <!-- Chapter image side (changes) -->
-        <div class="chapters__img-col">
-          <div class="chapter-img-item active" data-chapter="0">
-            <div class="chapter-img-inner">
-              <img src="assets/img/story-01.jpg" alt="Capítulo 1" loading="lazy" />
-            </div>
-          </div>
-          <div class="chapter-img-item" data-chapter="1">
-            <div class="chapter-img-inner">
-              <img src="assets/img/story-02.jpg" alt="Capítulo 2" loading="lazy" />
-            </div>
-          </div>
-          <div class="chapter-img-item" data-chapter="2">
-            <div class="chapter-img-inner">
-              <img src="assets/img/story-03.jpg" alt="Capítulo 3" loading="lazy" />
-            </div>
-          </div>
-          <div class="chapter-img-item" data-chapter="3">
-            <div class="chapter-img-inner">
-              <img src="assets/img/story-04.jpg" alt="Capítulo 4" loading="lazy" />
-            </div>
-          </div>
-        </div>
-
+    <section class="gallery" id="gallery">
+      <div class="gallery__header">
+        <h2 class="gallery__title">Los<br /><em>Capítulos</em></h2>
+        <p class="gallery__subtitle">Nuestra historia en imágenes.</p>
       </div>
-      <!-- Scroll spacer for pin triggers -->
-      <div class="chapters__spacer"></div>
+
+      <div class="gallery__grid">
+        <div class="gallery-item">
+          <div class="gallery-item__img">
+            <img src="assets/img/story-01.jpg" alt="Cuando todo empezó" class="img-pos-center" loading="lazy" />
+          </div>
+          <div class="gallery-item__text">
+            <span>01</span>
+            <h3>Cuando todo empezó</h3>
+            <p>El primer día que nos miramos así, algo cambió para siempre.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item mt-large">
+          <div class="gallery-item__img">
+            <img src="assets/img/story-02.jpg" alt="Nuestros lugares" class="img-pos-top" loading="lazy" />
+          </div>
+          <div class="gallery-item__text">
+            <span>02</span>
+            <h3>Nuestros lugares</h3>
+            <p>Cada rincón que visitamos juntos se convirtió en nuestro.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item__img">
+            <img src="assets/img/story-03.jpg" alt="Risas y aventuras" class="img-pos-center" loading="lazy" />
+          </div>
+          <div class="gallery-item__text">
+            <span>03</span>
+            <h3>Risas y aventuras</h3>
+            <p>No hay mejor cómplice para los momentos espontáneos.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item mt-large">
+          <div class="gallery-item__img">
+            <img src="assets/img/story-04.jpg" alt="Lo que viene" class="img-pos-right" loading="lazy" />
+          </div>
+          <div class="gallery-item__text">
+            <span>04</span>
+            <h3>Lo que viene</h3>
+            <p>Cada día juntos es una promesa silenciosa.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══════════════════════════════════════ -->
@@ -136,15 +135,33 @@
         <h2 class="collage__title">Fragmentos<br /><em>de nosotros</em></h2>
       </div>
       <div class="collage__grid">
-        <div class="collage__item ci-1" data-speed="0.8"><div class="ci__wrap"><img src="assets/img/collage-01.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-2" data-speed="1.2"><div class="ci__wrap"><img src="assets/img/collage-02.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-3" data-speed="0.9"><div class="ci__wrap"><img src="assets/img/collage-03.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-4" data-speed="1.1"><div class="ci__wrap"><img src="assets/img/collage-04.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-5" data-speed="0.7"><div class="ci__wrap"><img src="assets/img/collage-05.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-6" data-speed="1.3"><div class="ci__wrap"><img src="assets/img/collage-06.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-7" data-speed="0.85"><div class="ci__wrap"><img src="assets/img/collage-07.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-8" data-speed="1.15"><div class="ci__wrap"><img src="assets/img/collage-08.jpg" alt="Momento especial" loading="lazy" /></div></div>
-        <div class="collage__item ci-9" data-speed="0.95"><div class="ci__wrap"><img src="assets/img/collage-09.jpg" alt="Momento especial" loading="lazy" /></div></div>
+        <div class="collage__item ci-1" data-speed="0.8">
+          <div class="ci__wrap"><img src="assets/img/collage-01.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-2" data-speed="1.2">
+          <div class="ci__wrap"><img src="assets/img/collage-02.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-3" data-speed="0.9">
+          <div class="ci__wrap"><img src="assets/img/collage-03.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-4" data-speed="1.1">
+          <div class="ci__wrap"><img src="assets/img/collage-04.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-5" data-speed="0.7">
+          <div class="ci__wrap"><img src="assets/img/collage-05.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-6" data-speed="1.3">
+          <div class="ci__wrap"><img src="assets/img/collage-06.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-7" data-speed="0.85">
+          <div class="ci__wrap"><img src="assets/img/collage-07.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-8" data-speed="1.15">
+          <div class="ci__wrap"><img src="assets/img/collage-08.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
+        <div class="collage__item ci-9" data-speed="0.95">
+          <div class="ci__wrap"><img src="assets/img/collage-09.jpg" alt="Momento especial" loading="lazy" /></div>
+        </div>
       </div>
     </section>
 
@@ -159,7 +176,7 @@
       <div class="moments__grid">
         <div class="bento-card bc-large">
           <div class="bento-card__img-wrap">
-            <img src="assets/img/moments-01.jpg" alt="Momento 1" loading="lazy" />
+            <img src="assets/img/moments-01.jpg" alt="Momento 1" class="img-pos-center" loading="lazy" />
           </div>
           <div class="bento-card__caption">
             <span class="bento-card__label">En el mar</span>
@@ -168,15 +185,15 @@
         </div>
         <div class="bento-card bc-small">
           <div class="bento-card__img-wrap">
-            <img src="assets/img/moments-02.jpg" alt="Momento 2" loading="lazy" />
+            <img src="assets/img/moments-02.jpg" alt="Momento 2" class="img-pos-center" loading="lazy" />
           </div>
           <div class="bento-card__caption">
             <span class="bento-card__label">Cerca</span>
           </div>
         </div>
-        <div class="bento-card bc-small">
+        <div class="bento-card bc-tall">
           <div class="bento-card__img-wrap">
-            <img src="assets/img/moments-03.jpg" alt="Momento 3" loading="lazy" />
+            <img src="assets/img/moments-03.jpg" alt="Momento 3" class="img-pos-top" loading="lazy" />
           </div>
           <div class="bento-card__caption">
             <span class="bento-card__label">Playa</span>
@@ -184,7 +201,7 @@
         </div>
         <div class="bento-card bc-wide">
           <div class="bento-card__img-wrap">
-            <img src="assets/img/moments-04.jpg" alt="Momento 4" loading="lazy" />
+            <img src="assets/img/moments-04.jpg" alt="Momento 4" class="img-pos-center" loading="lazy" />
           </div>
           <div class="bento-card__caption">
             <span class="bento-card__label">Quietud</span>
@@ -193,7 +210,7 @@
         </div>
         <div class="bento-card bc-medium">
           <div class="bento-card__img-wrap">
-            <img src="assets/img/moments-05.jpg" alt="Momento 5" loading="lazy" />
+            <img src="assets/img/moments-05.jpg" alt="Momento 5" class="img-pos-top" loading="lazy" />
           </div>
           <div class="bento-card__caption">
             <span class="bento-card__label">Aventura</span>
@@ -201,7 +218,7 @@
         </div>
         <div class="bento-card bc-medium">
           <div class="bento-card__img-wrap">
-            <img src="assets/img/moments-06.jpg" alt="Momento 6" loading="lazy" />
+            <img src="assets/img/moments-06.jpg" alt="Momento 6" class="img-pos-center" loading="lazy" />
           </div>
           <div class="bento-card__caption">
             <span class="bento-card__label">Siempre</span>
@@ -236,14 +253,16 @@
       <div class="final__overlay"></div>
       <div class="final__content">
         <p class="final__dedication">
-          <!-- REEMPLAZA [Nombre] con el nombre de tu polola -->
-          Para ti, <em>[Nombre]</em>.<br />
+          Para ti, <em>Javi</em>.<br />
           Gracias por cada risa,<br />
           cada abrazo y cada día.
         </p>
         <a href="#hero" class="final__btn" id="backToTop">
           <span>Volver al inicio</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 14V2M8 2L3 7M8 2l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 14V2M8 2L3 7M8 2l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </a>
       </div>
       <div class="final__fade"></div>
@@ -269,4 +288,5 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

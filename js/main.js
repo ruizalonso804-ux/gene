@@ -8,20 +8,22 @@ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').mat
 
 /* ── Lenis smooth scroll ──────────────────────────── */
 let lenis;
-if (!prefersReduced) {
-  lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    smoothWheel: true,
-  });
-
-  // Sync Lenis with GSAP ticker
-  gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-  gsap.ticker.lagSmoothing(0);
-
-  // Let ScrollTrigger know about Lenis
-  lenis.on('scroll', ScrollTrigger.update);
+try {
+  if (!prefersReduced && typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      smoothWheel: true,
+    });
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+    lenis.on('scroll', ScrollTrigger.update);
+  }
+} catch(e) {
+  lenis = null;
 }
 
 /* ── Register ScrollTrigger ───────────────────────── */
@@ -165,73 +167,37 @@ gsap.to('.intro-statement__text', {
 });
 
 /* ═══════════════════════════════════════════════════
-   CHAPTERS — PINNED SCROLL
+   GALLERY — STAGGER REVEAL
    ═══════════════════════════════════════════════════ */
-const chapterItems    = document.querySelectorAll('.chapter-item');
-const chapterImgItems = document.querySelectorAll('.chapter-img-item');
-const numChapters = chapterItems.length;
-
-function setChapter(idx) {
-  chapterItems.forEach((el, i) => {
-    const active = i === idx;
-    gsap.to(el, { opacity: active ? 1 : 0, y: active ? 0 : (i < idx ? -20 : 20), duration: 0.6, ease: 'power2.out' });
-    if (active) {
-      el.classList.add('active');
-      el.style.position = 'relative';
-    } else {
-      el.classList.remove('active');
-      el.style.position = 'absolute';
-    }
+document.querySelectorAll('.gallery-item').forEach((item, i) => {
+  gsap.to(item, {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: item,
+      start: 'top 85%',
+    },
+    delay: (i % 2) * 0.1, // Stagger effect for items in the same row
   });
+});
 
-  chapterImgItems.forEach((el, i) => {
-    gsap.to(el, {
-      clipPath: i === idx ? 'inset(0 0% 0 0)' : (i < idx ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)'),
-      duration: 0.9,
-      ease: 'power3.inOut',
-    });
-  });
-}
-
-// Initialize first
-chapterImgItems[0].style.clipPath = 'inset(0 0% 0 0)';
-
-// Parallax on chapter images
+// Parallax for gallery images
 if (!prefersReduced) {
-  chapterImgItems.forEach(item => {
-    gsap.to(item.querySelector('.chapter-img-inner'), {
+  document.querySelectorAll('.gallery-item__img img').forEach((img) => {
+    gsap.to(img, {
       yPercent: 15,
       ease: 'none',
       scrollTrigger: {
-        trigger: '.chapters',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 2,
+        trigger: img.parentElement,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.5,
       }
     });
   });
 }
-
-// ScrollTrigger: detect which chapter panel is visible
-const chaptersSpacer = document.querySelector('.chapters__spacer');
-const chapterHeight = chaptersSpacer.offsetHeight;
-const panelHeight = chapterHeight / numChapters;
-
-ScrollTrigger.create({
-  trigger: '.chapters',
-  start: 'top top',
-  end: `+=${chapterHeight}`,
-  scrub: false,
-  pin: '.chapters__sticky',
-  onUpdate: (self) => {
-    const newIdx = Math.min(numChapters - 1, Math.floor(self.progress * numChapters));
-    const currentActive = document.querySelector('.chapter-item.active');
-    const currentIdx = currentActive ? parseInt(currentActive.dataset.chapter) : 0;
-    if (newIdx !== currentIdx) {
-      setChapter(newIdx);
-    }
-  }
-});
 
 /* ═══════════════════════════════════════════════════
    COLLAGE — REVEAL + PARALLAX
