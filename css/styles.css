@@ -759,6 +759,65 @@ body::before {
 }
 
 /* ═══════════════════════════════════════════════════
+   LETTER (PERSONAL MESSAGE)
+   ═══════════════════════════════════════════════════ */
+.letter {
+  background: var(--cream);
+  padding: clamp(5rem, 12vw, 10rem) clamp(2rem, 8vw, 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter__inner {
+  max-width: 720px;
+  width: 100%;
+}
+
+.letter__label {
+  display: block;
+  font-family: var(--ff-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.letter__divider {
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 3rem;
+  opacity: 0.5;
+}
+
+.letter__body {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.9rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--carbon);
+  opacity: 0;
+  transform: translateY(24px);
+  white-space: pre-line;
+}
+
+.letter__signature {
+  font-family: var(--ff-serif);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: var(--gold);
+  margin-top: 2.5rem;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* ═══════════════════════════════════════════════════
    FINAL CINEMATIC
    ═══════════════════════════════════════════════════ */
 .final {

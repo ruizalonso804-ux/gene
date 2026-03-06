@@ -22,7 +22,7 @@ try {
     gsap.ticker.lagSmoothing(0);
     lenis.on('scroll', ScrollTrigger.update);
   }
-} catch(e) {
+} catch (e) {
   lenis = null;
 }
 
@@ -49,7 +49,7 @@ window.addEventListener('scroll', () => {
    ═══════════════════════════════════════════════════ */
 const preloader = document.getElementById('preloader');
 const loaderBar = document.getElementById('loaderBar');
-const skipBtn   = document.getElementById('skipBtn');
+const skipBtn = document.getElementById('skipBtn');
 const loaderCurtain = document.getElementById('loaderCurtain');
 const preloaderText = document.querySelector('.preloader__text');
 
@@ -116,7 +116,7 @@ function splitTextToChars(el) {
 
 function initHeroAnimations() {
   const heroTitle = document.querySelector('.hero__title');
-  const heroSub   = document.querySelector('.hero__sub');
+  const heroSub = document.querySelector('.hero__sub');
 
   // Split title to chars
   const chars = splitTextToChars(heroTitle);
@@ -277,6 +277,40 @@ gsap.to('.quote-line--bottom', {
 });
 
 /* ═══════════════════════════════════════════════════
+   LETTER — FADE-UP REVEAL
+   ═══════════════════════════════════════════════════ */
+gsap.to('.letter__label', {
+  opacity: 1,
+  y: 0,
+  duration: 0.9,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.letter', start: 'top 75%' }
+});
+
+gsap.to('.letter__divider', {
+  width: '100%',
+  duration: 1.2,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.letter', start: 'top 70%' }
+});
+
+gsap.to('.letter__body', {
+  opacity: 1,
+  y: 0,
+  duration: 1.2,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.letter', start: 'top 65%' }
+});
+
+gsap.to('.letter__signature', {
+  opacity: 1,
+  y: 0,
+  duration: 0.9,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.letter', start: 'top 55%' }
+});
+
+/* ═══════════════════════════════════════════════════
    FINAL — CONTENT REVEAL + FADE
    ═══════════════════════════════════════════════════ */
 if (!prefersReduced) {
@@ -343,7 +377,7 @@ document.getElementById('backToTop').addEventListener('click', (e) => {
    IMAGE FALLBACK
    ═══════════════════════════════════════════════════ */
 document.querySelectorAll('img').forEach(img => {
-  img.addEventListener('error', function() {
+  img.addEventListener('error', function () {
     this.style.background = 'linear-gradient(135deg, #E7E1D7 0%, #A7A099 100%)';
     this.style.minHeight = '200px';
     this.removeAttribute('src');
